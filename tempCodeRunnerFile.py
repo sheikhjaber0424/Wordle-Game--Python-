@@ -1,1 +1,1 @@
-read_words(file)
+fiveWordsList = word_list(file)
