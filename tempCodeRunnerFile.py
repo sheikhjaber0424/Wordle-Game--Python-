@@ -1,1 +1,6 @@
-fiveWordsList = word_list(file)
+def random_word(wordList):
+#    print(random.choice(wordList)) 
+
+
+
+# random_word(fiveWordsList)

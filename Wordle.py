@@ -27,11 +27,33 @@ fiveWordsList = word_list(file)
 #---------------------------------------------------
 #Implement a function random_word() that takes a list of words as a parameter and returns a random word from this list.
 #---------------------------------------------------
-def random_word(wordList):
 
-   print(random.choice(wordList)) 
-   
-random_word(fiveWordsList)
+# def random_word(wordList):
+#    print(random.choice(wordList)) 
+
+
+
+# random_word(fiveWordsList)
+
+
+
+
+#---------------------------------------------------
+#Implement a function is_real_word() that takes two parameters, a guess and a word list and returns True if the word is in the word list and False otherwise.
+#---------------------------------------------------
+
+
+
+def is_real_word(guessWord,wordList):
+   if guessWord in wordList:
+      return True
+
+   else:
+       return False
+
+
+yourGuessedWord = input('Guess a word: ')
+isGuessTrue = is_real_word(yourGuessedWord,fiveWordsList)
 
 
 
