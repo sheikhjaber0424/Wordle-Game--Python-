@@ -1,13 +1,16 @@
 file = open("words_file.txt","r")
-# file = open("words_file.txt","w")
+
 
 def read_words(file):
    a=file.read().split()
+   file2 = open("words_file.txt","w")
+   for item in a:
+        # write each item on a new line
+        file2.write("%s\n" % item)
 
-   print(a)
+   # print(a)
    return a
 
-
-read_words(file)
-
+wordsList = read_words(file)
+#print(wordsList)
 
