@@ -6,7 +6,7 @@ import random
 
 file = open("words_file.txt","r")
 def word_list(file):
-   a=file.read().split()
+   a = file.read().split()
 
    file2 = open("words_file.txt","w")
 
@@ -28,13 +28,14 @@ fiveWordsList = word_list(file)
 #Implement a function random_word() that takes a list of words as a parameter and returns a random word from this list.
 #---------------------------------------------------
 
-# def random_word(wordList):
-#    print(random.choice(wordList)) 
+def random_word(wordList):
+   return random.choice(wordList)
 
 
 
-# random_word(fiveWordsList)
+randomWord = random_word(fiveWordsList)
 
+print(randomWord)
 
 
 
@@ -57,3 +58,49 @@ isGuessTrue = is_real_word(yourGuessedWord,fiveWordsList)
 
 
 
+# ---------------------------
+# Implement a function check_guess()that takes two parameters. 
+# The first is the guessed word and the second is the word the user has to find. 
+# check_guess() returns a string containing the following characters: 
+# ---------------------------
+
+
+def check_guess(yourGuessedWord, randomWord):
+   show = []
+   dup = []
+   for i in range(len(yourGuessedWord)):
+    
+
+      if yourGuessedWord[i] in randomWord:
+
+         if yourGuessedWord[i]==randomWord[i]:
+            if yourGuessedWord.count(yourGuessedWord[i])>1 and yourGuessedWord[i] in dup:
+               show.append('_')                    
+            else:
+               show.append('X')
+               dup.append(yourGuessedWord[i]) 
+
+
+
+         if yourGuessedWord[i]!=randomWord[i]:
+            if yourGuessedWord.count(yourGuessedWord[i])>1 and yourGuessedWord[i] in dup:
+               show.append('_')                    
+            else:
+               show.append('O')
+               dup.append(yourGuessedWord[i])      
+
+            
+
+      if yourGuessedWord[i] not in randomWord:
+         show.append('_')
+      
+
+   
+
+   return show
+
+showStr = check_guess(yourGuessedWord,randomWord)
+print(showStr)
+print(yourGuessedWord)
+
+ 
