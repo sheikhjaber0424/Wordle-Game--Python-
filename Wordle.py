@@ -1,5 +1,6 @@
 import random
 
+
 #[1]---------------------------------------------------
 #Implement a function word_list() that reads the 5_letter_words.txt file and returns a list of the words in the file.
 #---------------------------------------------------
@@ -16,8 +17,8 @@ def word_list(file):
 
    # print(a)
    return a
+   
 
-fiveWordsList = word_list(file)
 #print(fiveWordsList)
 
 
@@ -33,9 +34,7 @@ def random_word(wordList):
 
 
 
-randomWord = random_word(fiveWordsList)
-
-print(randomWord)
+# print(randomWord)
 
 
 
@@ -53,8 +52,8 @@ def is_real_word(guessWord,wordList):
        return False
 
 
-yourGuessedWord = input('Guess a word: ')
-isGuessTrue = is_real_word(yourGuessedWord,fiveWordsList)
+#yourGuessedWord = input('Guess a word: ')
+
 
 
 
@@ -99,9 +98,9 @@ def check_guess(yourGuessedWord, randomWord):
 
    return show
 
-showStr = check_guess(yourGuessedWord,randomWord)
-print(showStr)
-print(yourGuessedWord)
+
+# print(showStr)
+# print(yourGuessedWord)
 
  
 
@@ -112,15 +111,58 @@ print(yourGuessedWord)
 #-------------------------------
 
 
-def next_guess(fiveWordsList ):
-   inp = input('Please enter a guess:')
-   
+def next_guess(fiveWordsList):
+  
+  
    while(1):
-      print(inp)
-      if inp in fiveWordsList:
-         break
+      yourGuessedWord = input('Please enter a guess:')
+      yourGuessedWord = yourGuessedWord.lower()
+      print(yourGuessedWord)
+      if yourGuessedWord in fiveWordsList:
+         return yourGuessedWord
       else:
-         inp = input('Please enter a guess:')  
+         print("That's not a real word!")    
 
+     
 
-next_guess(fiveWordsList)
+   
+      
+   
+#[6]-------------------------------------
+def play():
+  
+   c=5
+   fiveWordsList = word_list(file)
+   randomWord = random_word(fiveWordsList)
+
+   guessedWord=next_guess(fiveWordsList)
+   show =check_guess(guessedWord, randomWord)
+   print(show)
+   isGuessTrue = is_real_word(guessedWord,fiveWordsList)
+
+   if(isGuessTrue):
+      while(c!=0):
+         if(guessedWord == randomWord ):
+            print('You won!')
+            return
+
+         guessedWord=input('Please enter a guess:')
+         show =check_guess(guessedWord, randomWord)
+         print(show)
+
+         c=c-1
+         if(c==0):
+            print('You lost!')
+            print('The word was:',randomWord)
+        
+   
+ 
+play()
+
+   
+   
+   
+
+   
+ 
+ 
